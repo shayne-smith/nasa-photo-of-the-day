@@ -1,13 +1,7 @@
-import React from "react";
+import styled from "styled-components";
 
-const PhotoOfDayText = (props) => {
-    return (
-        <div className="photo-of-the-day-text">
-            <p>
-                {props.explanation}
-            </p>
-        </div>
-    )
-}
+const PhotoOfDayText = styled.p`
+    max-width: 100%;
+`;
 
 export default PhotoOfDayText
