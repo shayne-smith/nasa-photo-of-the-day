@@ -3,6 +3,7 @@ import "./App.css";
 import axios from "axios";
 import LandingPhoto from "./components/LandingPhoto";
 import NasaLogo from "./components/NasaLogo";
+import PhotoOfDayText from "./components/PhotoOfDayText";
 
 const base_url = `https://api.nasa.gov/planetary/apod`;
 const api_key = `Km0M9l3bFGvjU4DYAlx42xuhKxYxefshyc2IqjKb`;
@@ -15,6 +16,7 @@ function App() {
     axios.get(`${base_url}?api_key=${api_key}`)
     .then(res => {
       setNasaData(res.data)
+      debugger
     })
     .catch(err => {
       console.log(err)
@@ -28,8 +30,10 @@ function App() {
       {/* <div className="header">
 
       </div> */}
-      {<NasaLogo />}
+      <NasaLogo />
       {nasaData && <LandingPhoto url={nasaData.url} />}
+      {nasaData && <PhotoOfDayText explanation={nasaData.explanation}/>}
+
       {/* <div>
       
       <img src="" />

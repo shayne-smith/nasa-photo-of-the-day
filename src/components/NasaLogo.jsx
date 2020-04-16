@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../Assets/nasaLogo.png";
 
-const NasaLogo = (props) => {
+const NasaLogo = () => {
     return (
         <div className="nasa-logo">
             <img alt="Nasa logo" src={logo} />
