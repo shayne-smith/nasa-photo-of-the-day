@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import LandingPhoto from "./components/LandingPhoto";
+import NasaLogo from "./components/NasaLogo";
 
 const base_url = `https://api.nasa.gov/planetary/apod`;
 const api_key = `Km0M9l3bFGvjU4DYAlx42xuhKxYxefshyc2IqjKb`;
@@ -14,14 +15,11 @@ function App() {
     axios.get(`${base_url}?api_key=${api_key}`)
     .then(res => {
       setNasaData(res.data)
-      console.log(`The NASA APOD url is: ` + res.data.url)
-      debugger
     })
     .catch(err => {
       console.log(err)
-      debugger
     })
-  })
+  }, [])
 
 
   return (
@@ -30,7 +28,8 @@ function App() {
       {/* <div className="header">
 
       </div> */}
-      <LandingPhoto hdurl={nasaData.hdurl} />
+      {<NasaLogo />}
+      {nasaData && <LandingPhoto url={nasaData.url} />}
       {/* <div>
       
       <img src="" />
